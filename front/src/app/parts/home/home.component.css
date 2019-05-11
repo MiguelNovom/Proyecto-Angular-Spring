@@ -1,0 +1,20 @@
+.bloqueHome1{
+    background-image:url("/assets/img/fondo1.png");
+    background-size: cover;
+    width: 100%;
+    height: 650px;
+}
+
+.tituloHome{
+    font-size: 300%;
+    padding-top: 3%;
+    color: #4094d4;
+    margin-left: 34%;
+}
+.textoHome1{
+    color:#808080;
+    margin-left: 30%;
+    margin-right: 20%;
+    margin-top:-1.5%;
+    font-size: 135%;
+}
