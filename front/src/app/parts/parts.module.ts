@@ -6,6 +6,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [HeaderComponent, LayoutComponent, SidenavListComponent, HomeComponent],
@@ -17,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    RouterModule,
   ],
   exports: [
     HomeComponent,
@@ -30,7 +33,8 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    RouterModule
   ],
 })
 export class PartsModule { }

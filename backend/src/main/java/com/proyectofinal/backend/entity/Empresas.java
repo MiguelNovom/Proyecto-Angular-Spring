@@ -1,4 +1,4 @@
-package model;
+package com.proyectofinal.backend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

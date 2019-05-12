@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PartsModule } from './parts/parts.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { PartsModule } from './parts/parts.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     PartsModule,
+    AuthModule,
   ],
  
   providers: [],
