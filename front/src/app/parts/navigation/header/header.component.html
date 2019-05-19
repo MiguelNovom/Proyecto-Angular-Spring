@@ -11,19 +11,28 @@
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">
       <li>
-        <a routerLink="/info">INFORMACIÓN</a>
+        <a routerLink="/info">Información</a>
       </li>
       <li>
-        <a routerLink="/services">SERVICIOS</a>
+        <a routerLink="/services">Servicios</a>
       </li>
       <li>
-        <a routerLink="/blog">NOTICIAS</a>
+        <a routerLink="/blog">Noticias</a>
       </li>
       <li>
-        <a routerLink="/contact">CONTACTO</a>
+        <a routerLink="/contact">Contacto</a>
       </li>
-      <li>
-        <a routerLink="/login">ACCEDER</a>
+      <li *ngIf="!loginService.isAuthenticated()">
+        <a routerLink="/login">Iniciar Sesión</a>
+      </li>
+
+      <li *ngIf="loginService.isAuthenticated()" class="dropdown show">
+        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{loginService.user.nombre}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <button (click)="logout()" class="dropdown-item" type="submit">Cerrar Sesión</button>
+        </div>
       </li>
     </ul>
   </div>

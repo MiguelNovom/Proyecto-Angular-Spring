@@ -14,7 +14,10 @@
   <a mat-list-item routerLink="/contact" (click)="onSidenavClose()">
     <mat-icon>email</mat-icon> <span class="nav-caption">CONTACTO</span>   
   </a>
-  <a mat-list-item routerLink="/login" (click)="onSidenavClose()">
-    <mat-icon>person</mat-icon> <span class="nav-caption">ACCESO</span>   
+  <a *ngIf="!loginService.isAuthenticated()" mat-list-item routerLink="/login" (click)="onSidenavClose()">
+    <mat-icon>person</mat-icon> <span class="nav-caption">INICIAR SESIÓN</span>   
+  </a>
+  <a *ngIf="loginService.isAuthenticated()" mat-list-item routerLink="/login" (click)="onSidenavClose(); logout();">
+    <mat-icon>person</mat-icon> <span class="nav-caption">CERRAR SESIÓN</span>   
   </a>
 </mat-nav-list>

@@ -1,4 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { LoginService } from 'src/app/auth/services/login.service';
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sidenav-list',
@@ -9,7 +12,7 @@ export class SidenavListComponent implements OnInit {
 
   @Output() sidenavClose = new EventEmitter();
 
-  constructor() { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,5 +20,9 @@ export class SidenavListComponent implements OnInit {
   public onSidenavClose = () => {
     this.sidenavClose.emit();
   }
-
+  logout(): void {
+    this.loginService.logout();
+    swal.fire('Logout', 'Has cerrado sesión correctamente.', 'success');
+    this.router.navigate(['/login']);
+  }
 }

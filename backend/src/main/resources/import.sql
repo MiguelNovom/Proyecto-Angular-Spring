@@ -1,6 +1,6 @@
 /* Creamos algunos usuarios con sus roles */
-INSERT INTO `users` (email, password, enabled, nombre, apellidos, telefono) VALUES ('profesor@bolsadeideas.com','$2a$10$C3Uln5uqnzx/GswADURJGOIdBqYrly9731fnwKDaUdBkt/M3qvtLq',1, 'Andres', 'Guzman','123456789');
-INSERT INTO `users` (email, password, enabled, nombre, apellidos, telefono) VALUES ('miguel.novom@gmail.com','$2a$10$RmdEsvEfhI7Rcm9f/uZXPebZVCcPC7ZXZwV51efAvMAp1rIaRAfPK',1, 'John', 'Doe','123456789');
+INSERT INTO `users` (email, password, enabled, nombre, apellidos, telefono) VALUES ('profesor@bolsadeideas.com','$2a$10$nX/.Z5rEg3by7yuxGcLdv.81ApjTiPRoFl1fRUg8uTi8nOTcl0DuS',1, 'Andres', 'Guzman','123456789');
+INSERT INTO `users` (email, password, enabled, nombre, apellidos, telefono) VALUES ('miguel.novom@gmail.com','$2a$10$BFks8A7cfSWVTNvhyXyyi.23lluWZSK4YHS31ipTJwb2hgVhWJssy',1, 'Miguel', 'Novo Martínez','123456789');
 
 INSERT INTO `roles` (nombre) VALUES ('ROLE_USER');
 INSERT INTO `roles` (nombre) VALUES ('ROLE_ADMIN');

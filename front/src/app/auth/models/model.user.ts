@@ -5,5 +5,5 @@ export class User {
     apellidos: string ="";
     password: string="";
     telefono: string="";
-
+    roles:string[];
   }
