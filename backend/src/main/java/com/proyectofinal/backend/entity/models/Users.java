@@ -14,12 +14,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "users")
@@ -63,8 +67,34 @@ public class Users implements Serializable{
 	uniqueConstraints= {@UniqueConstraint(columnNames= {"user_id", "role_id"})})
 	private List<Roles> roles;
 	
-	private static final long serialVersionUID = 1L;
+	@JsonIgnoreProperties({"users"})
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="users", cascade = CascadeType.ALL)
+	private List<Noticias> noticias;
 	
+	@PrePersist
+	public void prePersist() {
+		this.create_at = new Date();
+	}
+	
+	public Users(Integer id, String nombre, String apellidos, String email, @NotEmpty String password, Boolean enabled,
+			@Digits(fraction = 0, integer = 10) String telefono, Date create_at, Date update_at, List<Roles> roles,
+			List<Noticias> noticias) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.password = password;
+		this.enabled = enabled;
+		this.telefono = telefono;
+		this.create_at = create_at;
+		this.update_at = update_at;
+		this.roles = roles;
+		this.noticias = noticias;
+	}
+	
+	public Users() {}
+
 	@Override
 	public String toString() {
 		return "Users [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email
@@ -152,5 +182,6 @@ public class Users implements Serializable{
 		this.roles = roles;
 	}
 	
+	private static final long serialVersionUID = 1L;
 	
 }

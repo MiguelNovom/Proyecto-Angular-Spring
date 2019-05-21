@@ -27,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     FlexLayoutModule,
     LayoutComponent,
+    FooterComponent,
     HeaderComponent,
     SidenavListComponent,
     MatTabsModule,

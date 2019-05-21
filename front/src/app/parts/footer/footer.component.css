@@ -1,0 +1,36 @@
+.footer1{
+    background-color: #4094d4;
+    text-align: center;
+    color: rgb(233, 233, 233);
+    padding-top:1%;
+}
+hr{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color:white;
+}
+.footer2{
+    background-color:#363636;
+    height: 12%;
+    color: lightgray;
+    padding-left: 10%;
+    padding-top: 1%;
+    font-size: 95%;
+}
+.footer1-text1{
+    padding-left: 6px;
+}
+.footer1-div1{
+    text-align: left!important;
+}
+.footer1-icon1{
+    margin-left:15%;
+}
+.container{
+    max-width: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+mat-icon{
+    vertical-align:middle;
+}

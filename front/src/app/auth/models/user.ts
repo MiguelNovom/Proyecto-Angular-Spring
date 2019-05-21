@@ -1,3 +1,5 @@
+import { Noticias } from 'src/app/notices/models/noticias';
+
 export class User {
     id : number;
     email: string="";
@@ -6,4 +8,5 @@ export class User {
     password: string="";
     telefono: string="";
     roles:string[];
+    noticias: Noticias[];
   }

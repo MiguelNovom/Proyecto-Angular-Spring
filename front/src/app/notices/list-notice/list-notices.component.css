@@ -1,0 +1,17 @@
+.divNotices1{
+    width: 100%;
+}
+
+.tittleNotices{
+    font-size: 300%;
+    padding-top: 8%;
+    color: #4094d4;
+    margin-left: 15%;
+}
+.txtNotices{
+    color:#808080;
+    margin-left: 18%;
+    margin-right: 20%;
+    margin-top:-1.5%;
+    font-size: 135%;
+}
