@@ -1,3 +1,111 @@
-<p>
-  detail-notice works!
-</p>
+<div *ngIf="notice">
+        <div class="card" *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN') && !detailVision">
+                <div class="card-header">
+                        {{notice.titulo}}
+                        <div class="previewvireButton">
+                                <button type="button" (click)="changeView()" mat-raised-button color="accent">Vista
+                                        Previa</button>
+                        </div>
+                        <div class="deleteButton">
+                                <button type="button" (click)="delete(notice.id)" mat-raised-button
+                                        color="warn">Eliminar</button>
+                        </div>
+                </div>
+                <div class="card-body">
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col-md-4 addImagen">
+                                                <div class="input-group" *ngIf="loginService.hasRole('ROLE_ADMIN')">
+                                                        <div class="custom-file">
+                                                                <input (change)="selectPhoto($event)" type="file"
+                                                                        class="custom-file-input" id="inputGroupFile04"
+                                                                        aria-describedby="inputGroupFileAddon04">
+                                                                <label class="custom-file-label"
+                                                                        for="inputGroupFile04">Seleccionar foto</label>
+                                                        </div>
+                                                        <div class="input-group-append">
+                                                                <button (click)="uploadPhoto()"
+                                                                        [disabled]="!selectPhoto"
+                                                                        class="btn btn-outline-secondary" type="button"
+                                                                        id="inputGroupFileAddon04">Subir</button>
+                                                        </div>
+                                                </div>
+                                                <div *ngIf="progressBar > 0" class="progress" style="height: 28px;">
+                                                        <div class="progress-bar progress-bar-striped"
+                                                                role="progressbar" [ngStyle]="{width:progressBar+'%'}"
+                                                                attr.aria-valuenow="{{progressBar}}" aria-valuemin="0"
+                                                                aria-valuemax="100">
+                                                                {{progressBar}}%
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-md">
+                                                <img *ngIf="notice?.imagen" style="width: 100%; height:15cm;"
+                                                        src="http://localhost:8080/api/uploads/img/{{notice.imagen}}"
+                                                        alt="{{notice.imagen}}" class="img-thumbnail rounded">
+                                                <img *ngIf="!notice?.imagen" style="width: 100%; height:15cm;"
+                                                        src="http://localhost:8080/img/no-image.png" alt="Sin imagen"
+                                                        class="img-thumbnail rounded">
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="card-footer">
+                        <div class="footerTitle">Edición Noticia</div>
+                        <div class="col-md-12">
+                                <form #noticeForm="ngForm">
+                                        <div class="form-group row">
+                                                <label for=" titulo" class="col-md-1 col-form-label">
+                                                        Título</label>
+                                                <div class="col-md-10">
+                                                        <input type="text" name="titulo" #titulo="ngModel"
+                                                                value="{{notice.titulo}}" [(ngModel)]="notice.titulo"
+                                                                class="form-control">
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                                <label for="texto" class="col-md-1 col-form-label">Texto</label>
+                                                <div class="col-md-10">
+                                                        <textarea name="texto" [(ngModel)]="notice.texto"
+                                                                class="form-control" rows="13"></textarea>
+                                                </div>
+                                        </div>
+                                        <div class="form-group row boxSaveButton">
+                                                <div class="col-md-12">
+                                                        <button type="button" class="saveButton" (click)="update()"
+                                                                mat-raised-button color="primary">Guardar</button>
+                                                </div>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+        </div>
+
+        <div class="card text-center card-notice"
+                *ngIf="detailVision || !loginService.isAuthenticated() || !loginService.hasRole('ROLE_ADMIN')">
+                <div class="card-header bg-darko">
+                        Ultimas Noticias
+                        <div *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN')"
+                                class="previewvireButton">
+                                <button type="button" class="x" (click)="changeView()" mat-raised-button
+                                        color="primary">Volver</button>
+                        </div>
+                </div>
+                <div class="card-body">
+                        <img *ngIf="notice?.imagen" style="width: 100%; height:12.5cm;"
+                                src="http://localhost:8080/api/uploads/img/{{notice.imagen}}" alt="{{notice.imagen}}"
+                                class="img-thumbnail rounded">
+                        <img *ngIf="!notice?.imagen" style="width: 100%; height:12.5cm;"
+                                src="http://localhost:8080/img/no-image.png" alt="Sin imagen"
+                                class="img-thumbnail rounded">
+                        <div class="card-title">{{notice.titulo}}</div>
+                        <div class="dropdown-divider"></div>
+                        <p class="card-text">{{notice.texto}}</p>
+
+                </div>
+                <div class="card-footer text-muted">
+                        Ultima modificación: {{notice.create-At}}
+                </div>
+        </div>
+</div>

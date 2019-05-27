@@ -79,6 +79,13 @@ export class LoginService {
     }
     return false;
   }
+
+  hasRole(role: string): boolean {
+    if (this.user.roles.includes(role)) {
+      return true;
+    }
+    return false;
+  }
   logout(): void {
     this._token = null;
     this._user = null;

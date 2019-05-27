@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ListNoticesComponent } from './notices/list-notice/list-notices.component';
 import { ListServicesComponent } from './business-services/list-services/list-services.component';
 import { ContactComponent } from './contact/contact/contact.component';
+import { DetailNoticeComponent } from './notices/detail-notice/detail-notice.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'blog', component: ListNoticesComponent},
   { path: 'services', component: ListServicesComponent},
   { path: 'contact', component: ContactComponent},
-  
+  { path: 'blog/ver/:id', component: DetailNoticeComponent}
 ];
 
 @NgModule({

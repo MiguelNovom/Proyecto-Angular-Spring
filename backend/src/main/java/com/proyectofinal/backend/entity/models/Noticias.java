@@ -31,18 +31,14 @@ public class Noticias implements Serializable {
 	@Column(name = "foto")
 	private String imagen;
 	
-	@Column(name = "texto")
+	@Column(name = "texto", columnDefinition="TEXT")
 	private String texto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "create_at", insertable = false, updatable = false)
+	@Column(name = "create_at")
 	private Date create_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "update_at", insertable = false, updatable = false, nullable = true)
-	private Date update_at;
 	
-	@JsonIgnoreProperties({"facturas"})
+	@JsonIgnoreProperties({"noticias"})
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="user_id")
 	private Users users;
@@ -92,14 +88,6 @@ public class Noticias implements Serializable {
 		this.create_at = create_at;
 	}
 
-	public Date getUpdate_at() {
-		return update_at;
-	}
-
-	public void setUpdate_at(Date update_at) {
-		this.update_at = update_at;
-	}
-
 	public Users getUsers() {
 		return users;
 	}
@@ -116,7 +104,6 @@ public class Noticias implements Serializable {
 		this.imagen = imagen;
 		this.texto = texto;
 		this.create_at = create_at;
-		this.update_at = update_at;
 		this.users = users;
 	}
 	public Noticias() {
@@ -126,7 +113,7 @@ public class Noticias implements Serializable {
 	@Override
 	public String toString() {
 		return "Noticias [id=" + id + ", titulo=" + titulo + ", imagen=" + imagen + ", texto=" + texto + ", create_at="
-				+ create_at + ", update_at=" + update_at + ", users=" + users + "]";
+				+ create_at + ", update_at=" + ", users=" + users + "]";
 	}
 	
 	private static final long serialVersionUID = 1L;

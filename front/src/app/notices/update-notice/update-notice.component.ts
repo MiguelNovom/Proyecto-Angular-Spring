@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import Swal from 'sweetalert2';
+import { NoticeService } from '../notice.service';
+import { Noticias } from '../models/noticias';
+import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-notice',
@@ -7,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateNoticeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private noticeService:NoticeService) { }
 
   ngOnInit() {
   }

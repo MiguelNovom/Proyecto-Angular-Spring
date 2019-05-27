@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NoticeService } from '../notice.service';
 import { ActivatedRoute } from '@angular/router';
 import { Noticias } from '../models/noticias';
-import { tap } from 'rxjs/operators';
+import { LoginService } from 'src/app/auth/services/login.service';
+import { ModalService } from '../modal.service';
 
 @Component({
   selector: 'app-list-notices',
@@ -12,28 +13,18 @@ import { tap } from 'rxjs/operators';
 export class ListNoticesComponent implements OnInit {
 
   notices: Noticias[];
-  paginator: any;
 
   constructor(private noticeService: NoticeService,
+    private loginService: LoginService, private modalService: ModalService,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(params => {
-      let page: number = +params.get('page');
-      if (!page) {
-        page = 0;
-      }
-
-      this.noticeService.getNotices(page)
-        .pipe(
-          tap(response => {
-            (response.content as Noticias[]).forEach(data => console.log(data.titulo));
-          })
-        ).subscribe(response => {
-          this.notices = response.content as Noticias[];
-          this.paginator = response;
-        });
+    this.noticeService.getNotices().subscribe(data => {
+      this.notices = data;
     });
   }
 
+  openModal() {
+    this.modalService.openModal();
+  }
 }

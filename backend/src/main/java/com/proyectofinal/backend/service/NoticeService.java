@@ -1,8 +1,8 @@
 package com.proyectofinal.backend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +16,7 @@ public class NoticeService implements INoticeService {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public Noticias findNoticiasById(Long id) {
+	public Noticias findNoticiasById(int id) {
 		return noticeRepository.findById(id).orElse(null);
 	}
 
@@ -28,14 +28,14 @@ public class NoticeService implements INoticeService {
 
 	@Override
 	@Transactional()
-	public void deleteNoticiasById(Long id) {
+	public void deleteNoticiasById(int id) {
 		noticeRepository.deleteById(id);
 
 	}
-
+	
 	@Override
 	@Transactional(readOnly = true)
-	public Page<Noticias> findAll(Pageable pageable) {
-		return noticeRepository.findAll(pageable);
+	public List<Noticias> findAllOrderByDate() {
+		return noticeRepository.findAllOrderByDate();
 	}
 }

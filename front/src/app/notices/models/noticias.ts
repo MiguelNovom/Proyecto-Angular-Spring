@@ -5,5 +5,6 @@ export class Noticias {
     titulo: string;
     texto: string;
     imagen: string;
+    createAt: Date;
     user: User;
 }

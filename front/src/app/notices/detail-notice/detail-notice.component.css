@@ -1,0 +1,58 @@
+.titulo{
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+    color:rgb(75, 75, 75);
+}
+.imagen{
+    width: 100%;
+    height: 100%;
+    padding-top:2%; 
+}
+.card-header{
+    text-align: center;
+    font-weight: bold;
+    font-size: 200%;
+    color:rgb(75, 75, 75);
+}
+.card-footer{
+    font-weight: bold;
+    font-size: 120%;
+    color:rgb(75, 75, 75);
+}
+.footerTitle{
+    font-size: 200%;
+    text-align: center
+}
+.boxSaveButton{
+    text-align: right;
+}
+.saveButton{
+    width: 83%;
+    margin-right: 8.5%;
+}
+.deleteButton{
+    display: inline-block;
+    margin-left: 1%;
+}
+.previewvireButton{
+    display: inline-block;
+    padding: 0%;
+    margin-left: 1%;
+}
+.card-notice{
+    margin-left: 10%;
+    width: 80%;
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+}
+.bg-darko{
+    color:#4094d4;;
+   
+}
+.card-title{
+    margin-top: 10px;
+    font-weight: bold;
+    color:rgb(75, 75, 75);
+    font-size:150%;
+}
