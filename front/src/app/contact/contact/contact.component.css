@@ -1,0 +1,54 @@
+.divContact1{
+    width: 100%;
+    background-color: white;
+}
+.tittleContact{
+    font-size: 300%;
+    padding-top: 8%;
+    color: #4094d4;
+    margin-left: 15%;
+}
+.txtContact{
+    color:#808080;
+    margin-left: 18%;
+    margin-right: 15%;
+    margin-top:-1.5%;
+    font-size: 135%;
+}
+.titleIcon{
+    margin-left: 8.5%;
+    color: #0493d0;
+    font-size:160%;
+    font-weight: bold;
+}
+.txtIcon{
+    color:#808080;
+    margin-left: 8.5%;
+}
+.divContact2{
+    padding-top:3%;
+    background-color: rgb(246, 250, 254);
+}
+.boxContact1{
+    text-align: center;
+    
+}
+.contactIcon{
+    color:rgb(33, 33, 156);
+    font-size: 300%;
+}
+
+.divContact3{
+    padding-top:2%;
+    background-color:white; 
+}
+.titleContactForm{
+    color:rgb(75, 75, 75);
+    font-size:220%;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5%;
+}
+.sendButton{
+    width: 100%;
+}

@@ -15,8 +15,7 @@ export class ListNoticesComponent implements OnInit {
   notices: Noticias[];
 
   constructor(private noticeService: NoticeService,
-    private loginService: LoginService, private modalService: ModalService,
-    private activatedRoute: ActivatedRoute) { }
+    private loginService: LoginService, private modalService: ModalService,) { }
 
   ngOnInit() {
     this.noticeService.getNotices().subscribe(data => {

@@ -1,3 +1,66 @@
-<p>
-  contact works!
-</p>
+<div class="divContact1">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="assets/img/fondo4.png" width="100%">
+    </div>
+    <div class="col-md-6">
+      <h1 class="tittleContact">CONTACTO</h1>
+      <br />
+      <p class="txtContact">En Novo Asesoría Laboral, Fiscal y Contable llevamos desde 1968 realizando tareas de
+        asesoramiento para PYMES y autónomos en Cádiz. Ofrecemos la posibilidad de contratar y combinar nuestros
+        servicios de manera personalizada en función de las necesidades del cliente. En Asesoría Novo, el cliente
+        encontrará el mejor asesoramiento profesional para todas sus consultas laborales, fiscales y contables.</p>
+    </div>
+  </div>
+</div>
+<div class="divContact2">
+  <div class="row">
+    <div class="col-md-3 boxContact1">
+      <mat-icon class="contactIcon">contact_phone</mat-icon>
+      <p class="titleIcon">Teléfono</p>
+      <p class="txtIcon">Teléfono: 956 224 629 <br />Movil: 601 223 454</p>
+    </div>
+    <div class="col-md-3 boxContact1">
+      <mat-icon class="contactIcon">email</mat-icon>
+      <p class="titleIcon">Email</p>
+      <p class="txtIcon"> novo.gs@arrakis.es</p>
+    </div>
+    <div class="col-md-3 boxContact1">
+      <mat-icon class="contactIcon">access_time</mat-icon>
+      <p class="titleIcon">Horario</p>
+      <p class="txtIcon">De lunes a viernes de 09:00 a 14:00 y de 17:00 a 20:00. En julio y agosto abrimos de 09:00 a
+        14:00 horas.</p>
+    </div>
+    <div class="col-md-3 boxContact1">
+      <mat-icon class="contactIcon">location_on</mat-icon>
+      <p class="titleIcon">Dirección</p>
+      <p class="txtIcon"> Calle de la Rosa, 30, 11002 Cádiz</p>
+    </div>
+  </div>
+  <div class="divContact3">
+    <div class="container">
+      <div class="titleContactForm">
+        Formulario de Contacto
+      </div>
+      <form #contactForm="ngForm">
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="text" name="titulo" placeholder="Título del mensaje" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-md-12">
+            <textarea name="texto" class="form-control" rows="13" placeholder="Mensaje"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-12">
+            <button type="button" class="sendButton" (click)="update()" mat-raised-button
+              color="primary">Enviar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

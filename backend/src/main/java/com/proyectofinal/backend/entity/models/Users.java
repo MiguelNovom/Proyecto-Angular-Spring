@@ -71,11 +71,32 @@ public class Users implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="users", cascade = CascadeType.ALL)
 	private List<Noticias> noticias;
 	
+	@JsonIgnoreProperties({"users"})
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="users", cascade = CascadeType.ALL)
+	private List<Servicios> servicios;
 	@PrePersist
 	public void prePersist() {
 		this.create_at = new Date();
 	}
-	
+
+	public Users(Integer id, String nombre, String apellidos, String email, @NotEmpty String password, Boolean enabled,
+			@Digits(fraction = 0, integer = 10) String telefono, Date create_at, Date update_at, List<Roles> roles,
+			List<Noticias> noticias, List<Servicios> servicios) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.password = password;
+		this.enabled = enabled;
+		this.telefono = telefono;
+		this.create_at = create_at;
+		this.update_at = update_at;
+		this.roles = roles;
+		this.noticias = noticias;
+		this.servicios = servicios;
+	}
+
 	public Users(Integer id, String nombre, String apellidos, String email, @NotEmpty String password, Boolean enabled,
 			@Digits(fraction = 0, integer = 10) String telefono, Date create_at, Date update_at, List<Roles> roles,
 			List<Noticias> noticias) {
@@ -99,7 +120,8 @@ public class Users implements Serializable{
 	public String toString() {
 		return "Users [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email
 				+ ", password=" + password + ", enabled=" + enabled + ", telefono=" + telefono + ", create_at="
-				+ create_at + ", update_at=" + update_at + ", roles=" + roles + "]";
+				+ create_at + ", update_at=" + update_at + ", roles=" + roles + ", noticias=" + noticias
+				+ ", servicios=" + servicios + "]";
 	}
 
 	public Integer getId() {
@@ -113,7 +135,21 @@ public class Users implements Serializable{
 	public String getNombre() {
 		return nombre;
 	}
+	public List<Noticias> getNoticias() {
+		return noticias;
+	}
 
+	public void setNoticias(List<Noticias> noticias) {
+		this.noticias = noticias;
+	}
+
+	public List<Servicios> getServicios() {
+		return servicios;
+	}
+
+	public void setServicios(List<Servicios> servicios) {
+		this.servicios = servicios;
+	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}

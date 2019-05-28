@@ -1,0 +1,18 @@
+.divServices1{
+    width: 100%;
+    background-color: white;
+}
+
+.tittleServices{
+    font-size: 300%;
+    padding-top: 8%;
+    color: #4094d4;
+    margin-left: 15%;
+}
+.txtServices{
+    color:#808080;
+    margin-left: 18%;
+    margin-right: 15%;
+    margin-top:-1.5%;
+    font-size: 135%;
+}
