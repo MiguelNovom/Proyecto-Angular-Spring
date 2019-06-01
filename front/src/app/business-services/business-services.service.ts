@@ -25,4 +25,20 @@ export class BusinessServicesService {
   getServicios(): Observable<Servicios[]> {
     return this.http.get<Servicios[]>(this.urlEndPoint);
   }
+
+  addServices(service: Servicios): Observable<Servicios> {
+    return this.http.post<Servicios>(this.urlEndPoint, service, { headers: this.agregarAuthorizationHeader() })
+  }
+
+  gerService(id: number): Observable<Servicios> {
+    return this.http.get<Servicios>(`${this.urlEndPoint}/${id}`);
+  }
+
+  updateService(service: Servicios): Observable<any> {
+    return this.http.put<Servicios>(`${this.urlEndPoint}/${service.id}`, service, { headers: this.agregarAuthorizationHeader() });
+  }
+
+  deleteService(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.urlEndPoint}/${id}`, { headers: this.agregarAuthorizationHeader() });
+  }
 }

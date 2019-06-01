@@ -1,3 +1,44 @@
-<p>
-  add-services works!
-</p>
+<div *ngIf="modalService.modal" class="modal" tabindex="-1" role="dialog" style="display:block;">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ tittle }}</h5>
+        <button (click)="closeModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form #noticeForm="ngForm" class="form-horizontal">
+            <div class="form-group">
+              <div class="col-md-12">
+                <input type="text" class="form-control" [(ngModel)]="service.titulo" name="titulo" #titulo="ngModel"
+                  placeholder="Título" autofocus required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                <textarea class="form-control" [(ngModel)]="service.texto" name="titulo" #titulo="ngModel"
+                  placeholder="Descripcion" autofocus required></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-12">
+                  <mat-form-field>
+                      <mat-label>Icono</mat-label>
+                      <mat-select [(ngModel)]="service.icono" name="icono">
+                        <mat-option *ngFor="let icon of icons" [value]="icon.value">
+                          {{icon.viewValue}}<mat-icon>{{icon.value}}</mat-icon>
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+              </div>
+            </div>
+            <button type="submit" (click)='addService()' mat-raised-button color="primary">Guardar</button>
+            <button (click)="closeModal()" type="button" mat-raised-button data-dismiss="modal">Cerrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

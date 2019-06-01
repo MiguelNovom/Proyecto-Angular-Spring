@@ -19,7 +19,7 @@ export class AddNoticeComponent implements OnInit {
 
   constructor(private modalService:ModalService, private loginService:LoginService,
     private noticeService:NoticeService, private router:Router) {
-    this.notice= <Noticias>{};
+      this.notice= <Noticias>{};
    }
   ngOnInit() {
   }
@@ -35,6 +35,6 @@ export class AddNoticeComponent implements OnInit {
   }
 
   closeModal() {
-    this.modalService.closeModal();
+    this.modalService.closeModalBasic();
   }
 }

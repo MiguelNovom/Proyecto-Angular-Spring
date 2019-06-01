@@ -6,13 +6,22 @@ import { Injectable, EventEmitter } from '@angular/core';
 })
 export class ModalService {
   modal: boolean = false;
+  modalDetail: boolean = false;
   constructor() { }
   
-  openModal() {
+  openModalBasic() {
     this.modal = true;
   }
 
-  closeModal() {
+  closeModalBasic() {
     this.modal = false;
+  }
+
+  openModalDetail() {
+    this.modalDetail = true;
+  }
+
+  closeModalDetail() {
+    this.modalDetail = false;
   }
 }

@@ -10,7 +10,6 @@ import { ModalService } from 'src/app/notices/modal.service';
   styleUrls: ['./list-services.component.css']
 })
 export class ListServicesComponent implements OnInit {
-
   servicios: Servicios[];
   constructor(private bsServicio: BusinessServicesService,
     private loginService: LoginService, private modalService: ModalService) { }
@@ -21,7 +20,10 @@ export class ListServicesComponent implements OnInit {
     });
   }
   openModal() {
-    this.modalService.openModal();
+    this.modalService.openModalBasic();
+  
   }
-
+  openModalDetail(){
+    this.modalService.openModalDetail();
+  }
 }

@@ -1,4 +1,6 @@
-<div class="divServices1">
+<app-add-services></app-add-services>
+<app-detail-service></app-detail-service>
+<div class="divServices1 container">
   <div class="row">
     <div class="col-md-6">
       <img src="assets/img/fondo5.png" width="100%">
@@ -15,10 +17,21 @@
     </div>
   </div>
 </div>
-<div class="divServices2">
+<div class="divServices2 container">
+  <button (click)="openModal()" *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN')"
+    mat-raised-button class="botonCrearServicio" color="primary">Crear un Servicio</button>
   <div class="row">
-      <div class="col-4" *ngFor="let servicio of servicios">
-        {{servicio.titulo}}
+    <div class="col-4" *ngFor="let servicio of servicios">
+      <div class="box-part text-center">
+        <mat-icon class="principalIcon">{{servicio.icono}}</mat-icon>
+        <div class="title">
+          <h4>{{servicio.titulo}}</h4>
+        </div>
+        <div class="text">
+          <span>{{servicio.texto | slice:0:115}}</span>
+        </div>
+        <button (click)="openModalDetail()" mat-raised-button color="primary">Leer mas</button>
       </div>
+    </div>
   </div>
 </div>

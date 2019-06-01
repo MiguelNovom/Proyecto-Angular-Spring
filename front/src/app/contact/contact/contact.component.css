@@ -1,6 +1,6 @@
 .divContact1{
-    width: 100%;
-    background-color: white;
+    max-width: 100%;
+    background-color: white; 
 }
 .tittleContact{
     font-size: 300%;
@@ -27,6 +27,7 @@
 }
 .divContact2{
     padding-top:3%;
+    max-width: 100%;
     background-color: rgb(246, 250, 254);
 }
 .boxContact1{

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticeService } from '../notice.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Noticias } from '../models/noticias';
 import { LoginService } from 'src/app/auth/services/login.service';
 import { ModalService } from '../modal.service';
@@ -14,7 +14,7 @@ export class ListNoticesComponent implements OnInit {
 
   notices: Noticias[];
 
-  constructor(private noticeService: NoticeService,
+  constructor(private noticeService: NoticeService,private router:Router,
     private loginService: LoginService, private modalService: ModalService,) { }
 
   ngOnInit() {
@@ -24,6 +24,6 @@ export class ListNoticesComponent implements OnInit {
   }
 
   openModal() {
-    this.modalService.openModal();
+    this.modalService.openModalBasic();
   }
 }

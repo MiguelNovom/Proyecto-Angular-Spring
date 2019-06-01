@@ -1,5 +1,5 @@
 .divServices1{
-    width: 100%;
+    max-width: 100%;
     background-color: white;
 }
 
@@ -15,4 +15,42 @@
     margin-right: 15%;
     margin-top:-1.5%;
     font-size: 135%;
+}
+.divServices2{
+    max-width: 100%;
+    padding-top:1.5%;
+    padding-bottom: 1.5%;
+    background-color: rgb(241, 248, 248);
+}
+
+.box-part{
+    background:#FFF;
+    padding:12%;
+    margin-top:3%;
+    margin-bottom:3%;
+}
+.title{
+    margin-left: 7.5%;
+}
+.text{
+    margin:1%;
+}
+
+.botonCrearServicio{
+    margin-top:2%;
+    margin-left: 20%;
+    width: 60%;
+    margin-bottom: 2%;
+}
+
+.principalIcon{
+    font-size:320%;
+    color:#4183D7;
+}
+.buttonDelete{
+    position: absolute;
+    margin-top: -8%; 
+    margin-left: 40%;
+    font-size: 200%;
+    color: crimson;
 }
