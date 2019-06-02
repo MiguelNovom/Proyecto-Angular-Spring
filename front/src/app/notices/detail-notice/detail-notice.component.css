@@ -56,3 +56,6 @@
     color:rgb(75, 75, 75);
     font-size:150%;
 }
+.returnButton{
+    display: inline;
+}

@@ -4,15 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "servicios")
@@ -30,11 +25,6 @@ public class Servicios implements Serializable {
 	
 	@Column(name = "texto", columnDefinition="TEXT")
 	private String texto;
-	
-	@JsonIgnoreProperties({"servicios"})
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="user_id")
-	private Users users;
 
 	public Integer getId() {
 		return id;
@@ -68,21 +58,12 @@ public class Servicios implements Serializable {
 		this.texto = texto;
 	}
 
-	public Users getUsers() {
-		return users;
-	}
-
-	public void setUsers(Users users) {
-		this.users = users;
-	}
-
-	public Servicios(Integer id, String titulo, String icono, String texto, Users users) {
+	public Servicios(Integer id, String titulo, String icono, String texto) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.icono = icono;
 		this.texto = texto;
-		this.users = users;
 	}
 	public Servicios() {
 		
@@ -90,8 +71,7 @@ public class Servicios implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Servicios [id=" + id + ", titulo=" + titulo + ", icono=" + icono + ", texto=" + texto + ", users="
-				+ users + "]";
+		return "Servicios [id=" + id + ", titulo=" + titulo + ", icono=" + icono + ", texto=" + texto +"]";
 	}
 	private static final long serialVersionUID = 1L;
 	

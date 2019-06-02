@@ -71,9 +71,12 @@ public class Users implements Serializable{
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="users", cascade = CascadeType.ALL)
 	private List<Noticias> noticias;
 	
-	@JsonIgnoreProperties({"users"})
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="users", cascade = CascadeType.ALL)
+	@ManyToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinTable(name="users_servicios", joinColumns= @JoinColumn(name="user_id"),
+	inverseJoinColumns=@JoinColumn(name="servicio_id"),
+	uniqueConstraints= {@UniqueConstraint(columnNames= {"user_id", "servicio_id"})})
 	private List<Servicios> servicios;
+	
 	@PrePersist
 	public void prePersist() {
 		this.create_at = new Date();

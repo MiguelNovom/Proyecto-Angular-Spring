@@ -7,7 +7,7 @@
                                         Previa</button>
                         </div>
                         <div class="deleteButton">
-                                <button type="button" (click)="delete(notice.id)" mat-raised-button
+                                <button type="button" (click)="delete(notice)" mat-raised-button
                                         color="warn">Eliminar</button>
                         </div>
                 </div>
@@ -87,8 +87,8 @@
                 <div class="card-header bg-darko">
                         Ultimas Noticias
                         <div *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN')"
-                                class="previewvireButton">
-                                <button type="button" class="x" (click)="changeView()" mat-raised-button
+                                class="returnButton">
+                                <button type="button" (click)="changeView()" mat-raised-button
                                         color="primary">Volver</button>
                         </div>
                 </div>
@@ -105,7 +105,7 @@
 
                 </div>
                 <div class="card-footer text-muted">
-                        Ultima modificación: {{notice.create-At}}
+                        Ultima modificación: {{notice.create_at |date: "MM/dd/yyyy"}}
                 </div>
         </div>
 </div>

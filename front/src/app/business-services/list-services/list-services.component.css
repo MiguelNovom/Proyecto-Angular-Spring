@@ -29,9 +29,7 @@
     margin-top:3%;
     margin-bottom:3%;
 }
-.title{
-    margin-left: 7.5%;
-}
+
 .text{
     margin:1%;
 }
@@ -46,11 +44,17 @@
 .principalIcon{
     font-size:320%;
     color:#4183D7;
+    margin-right: 7.5%;
 }
-.buttonDelete{
+
+.btnService{
+    font-size: 110%;
+}
+
+.deleteService{
     position: absolute;
     margin-top: -8%; 
-    margin-left: 40%;
+    margin-left: 42%;
     font-size: 200%;
     color: crimson;
 }

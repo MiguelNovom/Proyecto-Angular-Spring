@@ -1,0 +1,9 @@
+.card-header{
+    font-weight: bold;
+    font-size: 120%;
+    color: rgb(75, 75, 75);
+}
+hr{
+    width: 114%;
+    margin-left: -7%;
+}

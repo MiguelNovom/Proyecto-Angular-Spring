@@ -14,19 +14,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailNoticeComponent implements OnInit {
 
-  titulo:String = "Detalle Noticia";
+  titulo: String = "Detalle Noticia";
   notice: Noticias;
   private selectedPhoto: File;
   progressBar: number = 0;
-  detailVision:Boolean;
+  detailVision: Boolean;
 
   constructor(private noticeService: NoticeService,
     private loginService: LoginService,
     private activatedRoute: ActivatedRoute,
-    private router:Router) { }
+    private router: Router) { }
 
   ngOnInit() {
-    this.detailVision= false;
+    this.detailVision = false;
     this.activatedRoute.paramMap.subscribe(params => {
       let id = +params.get('id');
       this.noticeService.getNotice(id).subscribe(notice => this.notice = notice);
@@ -58,22 +58,40 @@ export class DetailNoticeComponent implements OnInit {
         });
     }
   }
-  delete(id: number): void {
-      this.noticeService.delete(id).subscribe(data=>{
-        Swal.fire('Noticia Eliminada', 'Noticia eliminada correctamente!', 'success');
-        this.router.navigate(['/blog/']);
-      });
+  delete(noti: Noticias): void {
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: `¿Seguro que desea eliminar la noticia ${noti.titulo}?`,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: false,
+      reverseButtons: false
+    }).then((result) => {
+      if (result.value) {
+        this.noticeService.delete(noti.id).subscribe(
+          () => {
+            this.router.navigate(['/blog/']);
+            Swal.fire('Servicio Eliminado', 'Servicio eliminado correctamente!', 'success');
+          }
+        )
+      }
+    });
   }
-  changeView():void{
-    if(this.detailVision){
+  changeView(): void {
+    if (this.detailVision) {
       this.detailVision = false;
-    }else{
+    } else {
       this.detailVision = true;
     }
   }
 
   update(): void {
-    console.log(this.notice)
     this.noticeService.update(this.notice)
       .subscribe(
         data => {
@@ -81,5 +99,5 @@ export class DetailNoticeComponent implements OnInit {
         },
       )
   }
-  
+
 }

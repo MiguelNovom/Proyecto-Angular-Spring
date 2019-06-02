@@ -48,11 +48,13 @@ export class AddServicesComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   addService(): void {
     this.sbService.addServices(this.service).subscribe(
       data => {
         this.closeModal();
-        Swal.fire('Noticia creada', 'Noticia creada satisfactoriamente', 'success');
+        Swal.fire('Servicio creado', 'Servicio creado satisfactoriamente', 'success');
+        this.modalService.emitter.emit(data);
       },
     );
   }

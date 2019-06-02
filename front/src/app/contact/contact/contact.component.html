@@ -42,21 +42,21 @@
       <div class="titleContactForm">
         Formulario de Contacto
       </div>
-      <form #contactForm="ngForm">
+      <form >
         <div class="form-group row">
           <div class="col-md-12">
-            <input type="text" name="titulo" placeholder="Título del mensaje" class="form-control">
+            <input type="text" name="titulo" [(ngModel)]="contact.asunto" placeholder="Título del mensaje" class="form-control">
           </div>
         </div>
 
         <div class="form-group row">
           <div class="col-md-12">
-            <textarea name="texto" class="form-control" rows="13" placeholder="Mensaje"></textarea>
+            <textarea name="texto" class="form-control" [(ngModel)]="contact.mensaje" rows="13" placeholder="Mensaje"></textarea>
           </div>
         </div>
         <div class="form-group row">
           <div class="col-md-12">
-            <button type="button" class="sendButton" (click)="update()" mat-raised-button
+            <button type="button" class="sendButton" (click)="sendMail()" mat-raised-button
               color="primary">Enviar</button>
           </div>
         </div>

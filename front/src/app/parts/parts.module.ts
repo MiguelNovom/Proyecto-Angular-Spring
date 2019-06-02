@@ -8,10 +8,11 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
+import { InformationComponent } from './information/information.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, LayoutComponent, SidenavListComponent, HomeComponent, FooterComponent],
+  declarations: [HeaderComponent, LayoutComponent, SidenavListComponent, HomeComponent, FooterComponent, InformationComponent],
   imports: [
     FlexLayoutModule,
     CommonModule,
