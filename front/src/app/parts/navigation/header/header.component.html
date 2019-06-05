@@ -23,11 +23,15 @@
         <a routerLink="/contact">Contacto</a>
       </li>
       <li *ngIf="!loginService.isAuthenticated()">
+        <a routerLink="/register">Registrarse</a>
+      </li>
+      <li *ngIf="!loginService.isAuthenticated()">
         <a routerLink="/login">Iniciar Sesión</a>
       </li>
 
       <li *ngIf="loginService.isAuthenticated()" class="dropdown show">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           {{loginService.user.nombre}}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

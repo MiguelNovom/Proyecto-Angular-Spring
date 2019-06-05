@@ -1,0 +1,17 @@
+.divInfo1{
+    max-width: 100%;
+    background-color: white; 
+}
+.tittleInfo{
+    font-size: 300%;
+    padding-top: 8%;
+    color: #4094d4;
+    margin-left: 15%;
+}
+.txtInfo{
+    color:#808080;
+    margin-left: 18%;
+    margin-right: 15%;
+    margin-top:-1.5%;
+    font-size: 135%;
+}

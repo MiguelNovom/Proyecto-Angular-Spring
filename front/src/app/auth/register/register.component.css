@@ -1,0 +1,14 @@
+.card-register{
+    margin-left: 20%;
+     margin-top: 5%;
+     margin-bottom: 10%;
+     width: 60%;
+ }
+ .btn-primary{
+     background-color:#3f51b5;
+ }
+ .card-header{
+     color: #4094d4;
+     font-weight: bold;
+     font-size:150%;
+ }

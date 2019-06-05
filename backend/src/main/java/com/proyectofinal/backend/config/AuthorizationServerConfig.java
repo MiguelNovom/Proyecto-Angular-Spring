@@ -40,8 +40,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory().withClient("angularapp").secret(passwordEncoder.encode("12345")).scopes("read", "write")
-				.authorizedGrantTypes("password").accessTokenValiditySeconds(3600)
-				.refreshTokenValiditySeconds(3600);
+				.authorizedGrantTypes("password").accessTokenValiditySeconds(999999)
+				.refreshTokenValiditySeconds(999999);
 	}
 
 	@Override

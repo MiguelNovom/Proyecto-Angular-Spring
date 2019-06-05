@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/user';
+import Swal from 'sweetalert2';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ export class LoginService {
   private _token: string;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   public get user(): User {
     if (this._user != null) {
@@ -59,6 +62,17 @@ export class LoginService {
     this._user.roles = payload.authorities;
     sessionStorage.setItem('user', JSON.stringify(this._user));
   }
+
+  register(user: User): Observable<any> {
+    return this.http.post('http://localhost:8080/api/register', user).pipe(
+      catchError(e=>{
+        Swal.fire('Error al registrarse',e.error.mensaje,'error');
+        return throwError(e);
+      })
+     
+    );
+  }
+
 
   getTokenData(accessToken: string): any {
     if (accessToken != null) {
