@@ -4,6 +4,7 @@ import { Servicios } from '../models/servicios';
 import { BusinessServicesService } from '../business-services.service';
 import Swal from 'sweetalert2';
 import { LoginService } from 'src/app/auth/services/login.service';
+import { User } from 'src/app/auth/models/user';
 
 export interface Icons {
   value: string;
@@ -61,8 +62,13 @@ export class DetailServiceComponent implements OnInit {
         },
       )
   }
-  suscribeService():void {
-    
+  suscribeService(serv:Servicios):void {
+    this.bsService.suscribeService(this.loginService.getTokenData(this.loginService.token).user_name, serv).subscribe(
+      data=>{
+        Swal.fire('Servicio Actualizado', data.mensaje, 'success');
+        this.closeModal();
+      }
+    )
   }
 
 }

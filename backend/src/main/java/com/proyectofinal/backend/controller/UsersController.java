@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,11 @@ public class UsersController {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	@GetMapping("/users/suscribed")
+	public List<Object> showSuscribeds() {
+		return userService.findAllSuscribed();
+	}
 	
 	@PostMapping("/register")
 	public ResponseEntity<?> create(@RequestBody Users usuario) {

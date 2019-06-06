@@ -1,5 +1,7 @@
 package com.proyectofinal.backend.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -11,4 +13,7 @@ public interface UserRepository extends CrudRepository<Users, Long>{
 	
 	@Query("select u from Users u where u.email=?1")
 	public Users findByEmail2(String email);
+	
+	@Query("select u, s.titulo as titulo from Users u JOIN u.servicios s group by s.id")
+	public List<Object> findAllSuscribed();
 }

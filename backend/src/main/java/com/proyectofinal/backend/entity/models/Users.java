@@ -81,7 +81,8 @@ public class Users implements Serializable{
 	public void prePersist() {
 		this.create_at = new Date();
 	}
-
+	
+	
 	public Users(Integer id, String nombre, String apellidos, String email, @NotEmpty String password, Boolean enabled,
 			@Digits(fraction = 0, integer = 10) String telefono, Date create_at, Date update_at, List<Roles> roles,
 			List<Noticias> noticias, List<Servicios> servicios) {
@@ -100,23 +101,8 @@ public class Users implements Serializable{
 		this.servicios = servicios;
 	}
 
-	public Users(Integer id, String nombre, String apellidos, String email, @NotEmpty String password, Boolean enabled,
-			@Digits(fraction = 0, integer = 10) String telefono, Date create_at, Date update_at, List<Roles> roles,
-			List<Noticias> noticias) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.email = email;
-		this.password = password;
-		this.enabled = enabled;
-		this.telefono = telefono;
-		this.create_at = create_at;
-		this.update_at = update_at;
-		this.roles = roles;
-		this.noticias = noticias;
-	}
-	
+
+
 	public Users() {}
 
 	@Override
@@ -146,13 +132,6 @@ public class Users implements Serializable{
 		this.noticias = noticias;
 	}
 
-	public List<Servicios> getServicios() {
-		return servicios;
-	}
-
-	public void setServicios(List<Servicios> servicios) {
-		this.servicios = servicios;
-	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -219,6 +198,14 @@ public class Users implements Serializable{
 
 	public void setRoles(List<Roles> roles) {
 		this.roles = roles;
+	}
+	
+	public List<Servicios> getServicios() {
+		return servicios;
+	}
+
+	public void setServicios(List<Servicios> servicios) {
+		this.servicios = servicios;
 	}
 	
 	private static final long serialVersionUID = 1L;

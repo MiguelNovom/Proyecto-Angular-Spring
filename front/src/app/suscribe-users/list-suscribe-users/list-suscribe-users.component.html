@@ -1,0 +1,23 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Servicio</th>
+      <th scope="col">Email</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apeliidos</th>
+      <th scope="col">Telefono</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let row of usersByServices">
+    
+    <tr>
+      <th scope="row">{{row[1]}}</th>
+      <td>{{row[0].email}}</td>
+      <td>{{row[0].nombre}}</td>
+      <td>{{row[0].apellidos}}</td>
+      <td>{{row[0].telefono}}</td>
+    </tr>
+   
+  </tbody>
+</table>
+

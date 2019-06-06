@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact/contact.component';
 import { DetailNoticeComponent } from './notices/detail-notice/detail-notice.component';
 import { InformationComponent } from './parts/information/information.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { ListSuscribeUsersComponent } from './suscribe-users/list-suscribe-users/list-suscribe-users.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'blog/ver/:id', component: DetailNoticeComponent},
   { path: 'info', component: InformationComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: 'users_suscribed', component: ListSuscribeUsersComponent}
 ];
 
 @NgModule({

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticeService } from '../notice.service';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { Noticias } from '../models/noticias';
 import { LoginService } from 'src/app/auth/services/login.service';
 import { ModalService } from '../modal.service';
+
 
 @Component({
   selector: 'app-list-notices',
@@ -13,7 +14,7 @@ import { ModalService } from '../modal.service';
 export class ListNoticesComponent implements OnInit {
 
   notices: Noticias[];
-
+  noticeFilter = '';
   constructor(private noticeService: NoticeService,private router:Router,
     private loginService: LoginService, private modalService: ModalService,) { }
 

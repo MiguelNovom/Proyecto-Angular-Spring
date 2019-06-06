@@ -27,6 +27,7 @@ export class LoginService {
     return new User();
   }
 
+
   public get token(): string {
     if (this._token != null) {
       return this._token;
@@ -52,6 +53,10 @@ export class LoginService {
     return this.http.post<any>(urlEndpoint, params.toString(), { headers: httpHeaders })
   }
 
+  getsuscribedUsers(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/api/users/suscribed');
+  }
+
   saveUser(accessToken: string): void {
     let payload = this.getTokenData(accessToken);
     this._user = new User();
@@ -73,6 +78,10 @@ export class LoginService {
     );
   }
 
+  getUserLogged(): User{
+    this._user = JSON.parse(sessionStorage.getItem('user')) as User;
+    return this._user;
+  }
 
   getTokenData(accessToken: string): any {
     if (accessToken != null) {

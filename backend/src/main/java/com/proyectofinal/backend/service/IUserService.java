@@ -10,11 +10,13 @@ public interface IUserService {
 	
 	public List<Users> findAll();
 	
-	public Users findById(Long id);
+	public Users findById(long id);
 	
 	public Users save(Users user);
 	
 	public void delete(Long id);
+	
+	public  List<Object> findAllSuscribed();
 	
 
 }

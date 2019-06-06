@@ -6,9 +6,10 @@ import { DetailNoticeComponent } from './detail-notice/detail-notice.component';
 import { MatCardModule, MatButtonModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { NoticeFilterPipe } from './pipes/notice-filter.pipe';
 
 @NgModule({
-  declarations: [ListNoticesComponent, AddNoticeComponent, DetailNoticeComponent],
+  declarations: [ListNoticesComponent, AddNoticeComponent, DetailNoticeComponent, NoticeFilterPipe],
   imports: [
     CommonModule,
     MatCardModule,
@@ -24,6 +25,7 @@ import { AppRoutingModule } from '../app-routing.module';
     MatButtonModule,
     FormsModule,
     AppRoutingModule,
+    NoticeFilterPipe,
   ],
 })
 export class NoticesModule { }

@@ -52,7 +52,7 @@ public class UserService implements UserDetailsService, IUserService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Users findById(Long id) {
+	public Users findById(long id) {
 		return userRepository.findById(id).orElse(null);
 	}
 
@@ -66,5 +66,10 @@ public class UserService implements UserDetailsService, IUserService {
 	@Transactional()
 	public void delete(Long id) {
 		userRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Object> findAllSuscribed() {
+		return userRepository.findAllSuscribed();
 	}
 }

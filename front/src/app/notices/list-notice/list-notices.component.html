@@ -19,16 +19,20 @@
     <button (click)="openModal()" *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN')"
         mat-raised-button class="botonCrearNoticia" data-toggle="modal" data-target="#modalCrearNoticia"
         color="primary">Crear Noticia</button>
+    <div class="boxSearcher"
+       >
+        <input type="text" class="form-control" name="noticeFilter" placeholder="Buscar Noticias..." [(ngModel)]="noticeFilter">
+    </div>
     <div class="divNotices2-margin">
         <div class="row card-group">
-            <div class="col-4" *ngFor="let notice of notices">
+            <div class="col-4" *ngFor="let notice of notices | noticeFilter:noticeFilter">
                 <a [routerLink]="['/blog/ver', notice.id]">
                     <mat-card>
                         <img mat-card-image *ngIf="notice?.imagen"
-                            src="http://localhost:8080/api/uploads/img/{{notice.imagen}}" style="height: 240px; width: 360px;" alt="{{notice.imagen}}"
-                            class="rounded">
-                        <img mat-card-image *ngIf="!notice?.imagen" style="height: 240px; width: 360px;" src="http://localhost:8080/img/no-image.png"
-                            alt="Sin imagen" class="rounded">
+                            src="http://localhost:8080/api/uploads/img/{{notice.imagen}}"
+                            style="height: 240px; width: 360px;" alt="{{notice.imagen}}" class="rounded">
+                        <img mat-card-image *ngIf="!notice?.imagen" style="height: 240px; width: 360px;"
+                            src="http://localhost:8080/img/no-image.png" alt="Sin imagen" class="rounded">
                         <mat-card-content>
                             <p class="card-title">{{notice.titulo }}</p>
                             <hr />

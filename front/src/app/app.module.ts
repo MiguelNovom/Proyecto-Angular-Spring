@@ -8,11 +8,12 @@ import { AuthModule } from './auth/auth.module';
 import { NoticesModule } from './notices/notices.module';
 import { ContactModule } from './contact/contact.module';
 import { BusinessServicesModule } from './business-services/business-services.module';
+import { SuscribeUsersModule } from './suscribe-users/suscribe-users.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +24,7 @@ import { BusinessServicesModule } from './business-services/business-services.mo
     NoticesModule,
     ContactModule,
     BusinessServicesModule,
+    SuscribeUsersModule,
   ],
  
   providers: [],

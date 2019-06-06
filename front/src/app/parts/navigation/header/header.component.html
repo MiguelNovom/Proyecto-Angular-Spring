@@ -22,6 +22,9 @@
       <li>
         <a routerLink="/contact">Contacto</a>
       </li>
+      <li *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN')">
+        <a routerLink="/users_suscribed">Usarios Suscritos</a>
+      </li>
       <li *ngIf="!loginService.isAuthenticated()">
         <a routerLink="/register">Registrarse</a>
       </li>

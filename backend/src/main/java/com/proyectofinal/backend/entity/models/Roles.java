@@ -33,6 +33,11 @@ public class Roles {
 	public Roles() {
 	}
 
+	@Override
+	public String toString() {
+		return "Roles [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -57,4 +62,6 @@ public class Roles {
 		this.descripcion = descripcion;
 	}
 
+
+	
 }
