@@ -12,8 +12,8 @@ export class ContactComponent implements OnInit {
   contact:Contact;
   constructor(private contactService:ContactService) {
     this.contact = <Contact>{};
-    this.contact.email="lococo";
-    this.contact.nombre="lookdoksodk";
+    this.contact.mail="e4b.novo23@gmail.com";
+    this.contact.nombre="nombre";
    }
 
   ngOnInit() {

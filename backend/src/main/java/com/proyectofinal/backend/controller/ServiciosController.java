@@ -58,7 +58,7 @@ public class ServiciosController {
 	public Servicios create(@RequestBody Servicios servicio) {
 		return servicioService.saveServicios(servicio);
 	}
-	
+
 	@Secured({ "ROLE_USER" })
 	@PutMapping("/servicios/suscribe/{email}")
 	public ResponseEntity<?> suscribe(@RequestBody Servicios servicio, @PathVariable String email) {
@@ -66,12 +66,12 @@ public class ServiciosController {
 		Users usuario = userSerivce.findByEmail(email);
 
 		try {
-		List<Servicios> servicios = usuario.getServicios();
-		servicios.add(servicio);
-		usuario.setServicios(servicios);
-		userSerivce.save(usuario);
-		response.put("mensaje", "Servicio Actualizado con exito!");
-		}catch (Exception e) {
+			List<Servicios> servicios = usuario.getServicios();
+			servicios.add(servicio);
+			usuario.setServicios(servicios);
+			userSerivce.save(usuario);
+			response.put("mensaje", "Se ha suscrito!");
+		} catch (Exception e) {
 			response.put("mensaje", "Ya esta suscrito a este servicio");
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

@@ -6,11 +6,12 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MailService {
+public class MailService implements IMailService {
 
 	@Autowired
 	private JavaMailSender javaMailSender;
 
+	@Override
 	public void sendMail(String from, String to, String subject, String body) {
 
 		SimpleMailMessage mail = new SimpleMailMessage();

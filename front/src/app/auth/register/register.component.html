@@ -2,36 +2,82 @@
     <div class="card-header">{{titulo}}</div>
     <div class="card-body">
 
-        <form>
+        <form #registerForm="ngForm">
             <div class="form-group">
-                <input [(ngModel)]="user.email" type="text" class="form-control" name="email" id="email"
-                    placeholder="Email" autofocus required>
+                <input [(ngModel)]="user.email" type="text" class="form-control" #email="ngModel" name="email"
+                    id="email" placeholder="Email" autofocus email required>
+                <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <div *ngIf="email.errors.required">
+                        Email es requerido
+                    </div>
+                    <div *ngIf="email.errors.email">
+                        El campo debe de ser de tipo email
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <input [(ngModel)]="user.nombre" type="text" class="form-control" name="nombre" id="nombre"
-                        placeholder="Nombre" autofocus required>
+                    <input [(ngModel)]="user.nombre" type="text" class="form-control" #nombre="ngModel" name="nombre"
+                        id="nombre" placeholder="Nombre" autofocus maxlength="45" required>
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <div *ngIf="nombre.errors.required">
+                            Nombre es requerido
+                        </div>
+                        <div *ngIf="nombre.errors.maxlength">
+                            Maximo 45 caracteres
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group col-md-8">
-                    <input [(ngModel)]="user.apellidos" type="text" class="form-control" name="apellidos" id="apellidos"
-                        placeholder="Apellidos" autofocus required>
+                    <input [(ngModel)]="user.apellidos" type="text" class="form-control" #apellidos="ngModel"
+                        name="apellidos" id="apellidos" placeholder="Apellidos" autofocus maxlength="100" required>
+                    <div class="alert alert-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
+                        <div *ngIf="apellidos.errors.required">
+                            Apellidos es requerido
+                        </div>
+                        <div *ngIf="apellidos.errors.maxlength">
+                            Maximo 100 caracteres
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
-                <input [(ngModel)]="user.telefono" type="text" class="form-control" name="telefono" id="telefono"
-                    placeholder="Telefono" autofocus required>
+                <input [(ngModel)]="user.telefono" type="text" class="form-control" #telefono="ngModel" name="telefono"
+                    id="telefono" placeholder="Telefono" autofocus maxlength="9" minlength="9" required>
+                <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                    <div *ngIf="telefono.errors.required">
+                        Telefono es requerido
+                    </div>
+                    <div *ngIf="telefono.errors.maxlength">
+                        Maximo 9 caracteres
+                    </div>
+                    <div *ngIf="telefono.errors.minlength">
+                        Minimo 9 caracteres
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
-                    <input name="password" [(ngModel)]="user.password" id="password" type="password" class="form-control" placeholder="Password">
+                    <input name="password" [(ngModel)]="user.password" #password="ngModel" id="password" type="password"
+                        class="form-control" placeholder="Contraseña" maxlength="60" required>
                 </div>
                 <div class="form-group col-md-6">
-                    <input name="cpassword" type="password" class="form-control" placeholder="Retype Password">
+                    <input name="cpassword"  [(ngModel)]="user.cpassword" #cpassword="ngModel"  type="password" id="cpassword" class="form-control"
+                        placeholder="Repetir Contraseña">
+                </div>
+                <div class="alert alert-danger col-md-12" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <div *ngIf="password.errors.required">
+                        Contraseña es requerido
+                    </div>
+                    <div *ngIf="password.errors.maxlength">
+                        Maximo 60 caracteres
+                    </div>
                 </div>
             </div>
             <div class="form-group">
-                <input (click)='addUser()' type="submit" class="btn btn-lg btn-primary btn-block" value="Registrarse">
+                <input (click)='addUser(registerForm)' type="submit" class="btn btn-lg btn-primary btn-block"
+                    [disabled]="!registerForm.form.valid" value="Registrarse">
             </div>
         </form>
     </div>

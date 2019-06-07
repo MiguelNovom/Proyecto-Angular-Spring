@@ -1,6 +1,6 @@
 export class Contact {
     nombre:string;
-    email:string;
+    mail:string;
     mensaje:string;
     asunto:string;
 }
