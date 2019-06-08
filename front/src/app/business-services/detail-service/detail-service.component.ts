@@ -4,7 +4,6 @@ import { Servicios } from '../models/servicios';
 import { BusinessServicesService } from '../business-services.service';
 import Swal from 'sweetalert2';
 import { LoginService } from 'src/app/auth/services/login.service';
-import { User } from 'src/app/auth/models/user';
 
 export interface Icons {
   value: string;

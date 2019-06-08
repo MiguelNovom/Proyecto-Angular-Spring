@@ -9,15 +9,20 @@
       </div>
       <div class="modal-body">
         <div class="container">
-          <form #noticeForm="ngForm" class="form-horizontal">
+          <form #noticeForm="ngForm" #noticeForm="ngForm" class="form-horizontal">
             <div class="form-group">
               <div class="col-md-12">
                 <input type="text" class="form-control" [(ngModel)]="notice.titulo" name="titulo" #titulo="ngModel"
                   placeholder="Título" autofocus required>
+                  <div class="alert alert-danger col-md-12" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
+                      <div *ngIf="titulo.errors.required">
+                          Titulo requerido
+                      </div>
+                  </div>
               </div>
             </div>
             <hr />
-            <button type="submit" (click)='addNotices()' mat-raised-button color="primary">Guardar</button>
+            <button type="submit" (click)='addNotices()' [disabled]="!noticeForm.form.valid" mat-raised-button color="primary">Guardar</button>
             <button (click)="closeModal()" type="button" mat-raised-button data-dismiss="modal">Cerrar</button>
           </form>
         </div>

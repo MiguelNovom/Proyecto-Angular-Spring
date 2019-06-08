@@ -9,11 +9,16 @@
       </div>
       <div class="modal-body">
         <div class="container">
-          <form class="form-horizontal" *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN')">
+          <form class="form-horizontal" #dserviceForm="ngForm" *ngIf="loginService.isAuthenticated() && loginService.hasRole('ROLE_ADMIN')">
             <div class="form-group">
               <div class="col-md-12">
                 <input type="text" class="form-control" [(ngModel)]="service.titulo" name="titulo" #titulo="ngModel"
                   placeholder="Título" autofocus required>
+                  <div class="alert alert-danger col-md-12" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
+                      <div *ngIf="titulo.errors.required">
+                          Titulo requerido
+                      </div>
+                  </div>
               </div>
             </div>
             <div class="form-group">
@@ -35,7 +40,7 @@
               </div>
             </div>
             <hr/>
-            <button type="submit" (click)='updateService()' mat-raised-button color="primary">Actualizar</button>
+            <button type="submit" (click)='updateService()' [disabled]="!dserviceForm.form.valid" mat-raised-button color="primary">Actualizar</button>
             <button (click)="closeModal()" type="button" mat-raised-button data-dismiss="modal">Cerrar</button>
           </form>
           <div class="card text-center" *ngIf="loginService.isAuthenticated() && !loginService.hasRole('ROLE_ADMIN')">
