@@ -17,7 +17,6 @@ export class ListSuscribeUsersComponent implements OnInit {
   public getsuscribedUsers () {
     this.loginService.getsuscribedUsers()
     .subscribe(res => {
-      console.log(res)
       this.usersByServices = res;
     })
   }

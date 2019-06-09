@@ -11,7 +11,6 @@ export class ContactService {
   constructor(private http: HttpClient) { }
 
   sendMail(mensaje: Contact): Observable<Contact> {
-    console.log(mensaje);
     return this.http.post<Contact>(this.urlEndPoint, mensaje);
   }
 }
